@@ -6,8 +6,6 @@ public class TimeControl : MonoBehaviour {
 	public Slider s;
 	public GameObject gameOver;
 
-
-
 	// Use this for initialization
 	void Start () {
 		//   a = 1+Time.deltaTime;
@@ -28,9 +26,5 @@ public class TimeControl : MonoBehaviour {
 			gameOver.transform.FindChild("textGameOver").gameObject.SetActive(true);
 
 		}
-
-
 	}
-
-
 }
