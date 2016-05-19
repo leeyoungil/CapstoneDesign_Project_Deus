@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Effect : MonoBehaviour {
+public class bodyEffect : MonoBehaviour {
 	public ParticleSystem a;
 	// Use this for initialization
 	void Start () {
@@ -17,7 +17,8 @@ public class Effect : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "hand") {
 			Destroy (gameObject);
-			Score_Manager.score += 10;
+			Managerment.score += 10;
+
 			Instantiate(a,this.transform.position,this.transform.rotation);
 		}
 	}

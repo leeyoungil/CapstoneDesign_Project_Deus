@@ -18,7 +18,7 @@ public class Managerment : MonoBehaviour {
 	IEnumerator gameover(float waitTime) {
 		yield return new WaitForSeconds (waitTime);
 		score = 0;
-		Application.LoadLevel("test5555");
+		Application.LoadLevel("share2");
 	}
 
 	// Use this for initializatio
