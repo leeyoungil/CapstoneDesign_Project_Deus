@@ -5,11 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using MySql.Data.MySqlClient;
-public class Test3 : MonoBehaviour {
-   public string command;
-   public string command2;
-   public string scoreTest;
-   public int turn;
+public class Db : MonoBehaviour {
+   public string ArmTable;
+   public string score1;
    // Use this for initialization
    void Start () {
       SendData();
@@ -27,17 +25,17 @@ public class Test3 : MonoBehaviour {
    {
       string strConn = "Server=localhost;Database=deusProject;Uid=root;Pwd=1111;";
 
-      string a = command;
-      string b = turn;
-      string c = command2;
-      string d = scoreTest;  // 개발팀에서 score 주면 받아옴
-      string e = ")";
+      string a = ArmTable;
+		//"INSERT INTO armgame(turn_num, score) VALUES ('1',";
+
+		string b = score1;  // 개발팀에서 score 주면 받아옴
+		string c = ")";
 
 
       using (MySqlConnection conn = new MySqlConnection(strConn))
       {
          conn.Open();
-         MySqlCommand cmd = new MySqlCommand(a + b + c + d + e , conn);
+         MySqlCommand cmd = new MySqlCommand(a + b + c, conn);
          cmd.ExecuteNonQuery();
 
 
@@ -58,12 +56,11 @@ public class Test3 : MonoBehaviour {
          //ExecuteReader를 이용하여
          //연결 모드로 데이타 가져오기
          MySqlCommand cmd = new MySqlCommand(sql, conn);
-         int count = Convert.ToInt32(cmd.ExecuteScalar());
          MySqlDataReader rdr = cmd.ExecuteReader();
-         /*while (rdr.Read())
+         while (rdr.Read())
          {
             Console.WriteLine("{0} : {1}", rdr["score"], rdr["turn_num"]);
-         }*/
+         }
          rdr.Close();
       }
    }
